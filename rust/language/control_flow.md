@@ -62,3 +62,17 @@ let message = match my_num {
   _ => "goodbye"
 };
 ```
+_It is possible to nest expressions inside a match_
+```
+let something = true
+let thing = match my_num {
+  1 => {
+    if something {
+      true
+    } else {
+      false
+    }
+  },
+  _ => false,
+}
+```
