@@ -1,6 +1,14 @@
 ## Detached head
 Normally HEAD points to a branch pointer, which points to the tip of a branch. When you are in detached head state, it means that HEAD is now pointing to a specific commit, rather than the branch pointer. So, if you `cat .git/HEAD`, you'll see the hash of a commit, rather than something like `refs/heads/master`. You can simply `git switch master` to reattach HEAD to the master branch.
 
+## Setup
+
+`git config user.email <email_address>`
+
+`ssh-keygen -t ed25519 -C "myemail@email.com"`
+
+_Add the public key to github_
+
 ## git branch
 
 #### `git branch`
@@ -80,10 +88,49 @@ This will reset a particular file to the last commit. (So if you had a bunch of 
 
 ## git reset
 
-#### `git reset`
-a
+_Undoes changes by deleting history as if it never happened._
+
+#### `git reset <commit hash>`
+Soft reset. Similar to `git revert`. Resets a branch back to an earlier commit. Even though the commits will be gone, the changes will still be unstaged in your working directory (the files will not be reset). You'll lose the commits, but keep the work. You can then `git switch -c new_branch` to move those changes somewhere else. Actually moves the branch pointer backwards, eliminating the commits.
+
+#### `git reset --hard <commit hash>`
+Hard reset. Similar to `git revert`. This will remove the commits back to the commit hash and it will delete all changes after that point too. It's like you never worked after that commit. Actually moves the branch pointer backwards, eliminating the commits.
 
 ## git restore
 
-#### `git restore`
-a
+_Resets a file back to a specific point in history._
+
+#### `git restore <filename>`
+If you make changes to a file, but want to revert it back to the last commit in HEAD.
+
+#### `git restore --source <commit hash> <filename>`
+This will revert a file back to how it was in the given commit hash.
+
+#### `git restore --staged <filename>`
+This will unstage a file that you've staged using `git add`. It's the opposite of `git add`. You won't lose your changes, they just won't be staged anymore.
+
+## git revert
+
+_Undoes changes by "uncoding" them in a new commit._
+
+#### `git revert <commit hash>`
+Similar to `git reset`, except it creates a new commit which reverses the changes back to a commit.
+
+## git remote
+
+#### `git remote -v`
+Lists the remotes for the current project that you are cd'd into.
+
+#### `git remote add <name> <url>`
+Sets the remote for the current repository. Example: When you create a new git repo on github, then on your machine you `git remote add origin <the_github_url.git>`.
+
+#### `git remote rename <oldname> <newname>`
+Rename a remote on your machine.
+
+#### `git remote remove <remotename>`
+Deletes a remote from your machine.
+
+## git push
+
+#### `git push <remote_name> <branch>`
+Example: `git push origin master`. Defaults to _origin_ and the current branch if you only use `git push`.
