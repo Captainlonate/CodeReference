@@ -1,7 +1,7 @@
 # Control Flow
 
 ## if...else
-```
+```rust
 let a = 99;
 if a > 200 {
   println!("Over 200");
@@ -12,7 +12,7 @@ if a > 200 {
 }
 ```
 _It is possible to set a variable equal to an if expression_
-```
+```rust
 let my_num = 5;
 let is_lt_5 = if my_num < 5 {
   true
@@ -23,7 +23,7 @@ let is_lt_5 = if my_num < 5 {
 
 ## loop
 _Infinite loop until 'break'_
-```
+```rust
 let mut num = 0;
 loop {
   if num == 5 {
@@ -35,7 +35,7 @@ loop {
 ```
 
 ## while loop
-```
+```rust
 let mut num = 0;
 while num < 5 {
   println!("{:?}", num);
@@ -45,7 +45,7 @@ while num < 5 {
 
 ## match
 _If you don't handle a possible option (and don't have the \_), the compiler will fail_
-```
+```rust
 let some_int = 5;
 match some_int {
   1 => println!("it's 1"),
@@ -55,7 +55,7 @@ match some_int {
 }
 ```
 _It is possible to set a variable equal to a match expression_
-```
+```rust
 let my_num = 5;
 let message = match my_num {
   1 => "hello",
@@ -63,7 +63,7 @@ let message = match my_num {
 };
 ```
 _It is possible to nest expressions inside a match_
-```
+```rust
 let something = true
 let thing = match my_num {
   1 => {
@@ -75,4 +75,13 @@ let thing = match my_num {
   },
   _ => false,
 }
+```
+
+_You can give a variable name to the default case._
+```rust
+let n = 3;
+match n {
+  2 => println!("It was 2"),
+  other => println!("It was {:?}", other),
+};
 ```

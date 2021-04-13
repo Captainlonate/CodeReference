@@ -12,7 +12,7 @@ _You can let a function "borrow" memory by using the &_
 
 _Note that this does not affect scalar values, like i32 (You can still do it though.)_
 
-```
+```rust
 struct Book {
     pages: i32,
     rating: i32,
