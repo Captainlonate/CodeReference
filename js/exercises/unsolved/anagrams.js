@@ -34,3 +34,7 @@ console.log(validAnagram('aaz', 'zza'), 'Should be false')
 console.log(validAnagram('rat', 'car'), 'Should be false')
 
 console.log(validAnagram('awesome', 'awesom'), 'Should be false')
+
+// 550 - nnnnn - lmnop (disproves the charCodeAt with sum solution)
+// 110 * 5 === (108 + 109 + 110 + 111 + 112)
+console.log(validAnagram('nnnnn', 'lmnop'), 'Should be false')
