@@ -10,31 +10,20 @@
     Time Complexity - O(n)
     Space Complexity - O(1)
 */
-function sumZero(ints) {
-    
-}
+function sumZero (ints) {
 
+}
 
 // ********************************************
 
-console.log(
-    sumZero([-3, -2, -1, 0, 1, 2, 3]),
-    "Should be [-3, 3]"
-);
+console.log(sumZero([-3, -2, -1, 0, 1, 2, 3]), 'Should be [-3, 3]')
 
-console.log(
-    sumZero([-3, -2, -1, 0, 1, 2, 5, 7]),
-    "Should be [-2, 2]"
-);
+console.log(sumZero([-3, -2, -1, 0, 1, 2, 5, 7]), 'Should be [-2, 2]')
 
-console.log(
-    sumZero([-2, 0, 1, 3]),
-    "Should be undefined"
-);
+console.log(sumZero([-2, 0, 1, 3]), 'Should be undefined')
 
-console.log(
-    sumZero([1, 2, 3]),
-    "Should be undefined"
-);
+console.log(sumZero([1, 2, 3]), 'Should be undefined')
 
+console.log(sumZero([1]), 'Should be undefined')
 
+console.log(sumZero([]), 'Should be undefined')
