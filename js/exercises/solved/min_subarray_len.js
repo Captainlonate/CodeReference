@@ -56,3 +56,5 @@ console.log(minSubArrayLen([1, 4, 16, 22, 5, 7, 8, 9, 10], 55), "Should be 5");
 console.log(minSubArrayLen([4, 3, 3, 8, 1, 2, 3], 11), "Should be 2");
 
 console.log(minSubArrayLen([1, 4, 16, 22, 5, 7, 8, 9, 10], 95), "Should be 0");
+
+console.log(minSubArrayLen([120], 1), "Should be 1");

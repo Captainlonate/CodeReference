@@ -21,23 +21,15 @@ const circularDependencies = {
   H: ['G']
 }
 
-function sortDependencies (deps) {
-  
-}
-
 /*
-  Answer should be:
-  [
-    "A",
-    "B",
-    "C",
-    "F",
-    "D",
-    "E",
-    "G",
-    "H"
-  ]
+  should return an array containing the sorted dependencies
+  ['A', 'B', 'C'...]
+  If a circular dependency is found, return the two
+  root keys that refer to each other.
 */
+function sortDependencies (deps) {
+
+}
 
 console.log(
   `${sortDependencies(validDependencies)} should equal\n${validExpected}`
