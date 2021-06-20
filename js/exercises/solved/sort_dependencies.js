@@ -52,20 +52,6 @@ function sortDependencies (deps) {
   return sorted
 }
 
-/*
-  Answer should be:
-  [
-    "A",
-    "B",
-    "C",
-    "F",
-    "D",
-    "E",
-    "G",
-    "H"
-  ]
-*/
-
 console.log(
   `${sortDependencies(validDependencies)} should equal\n${validExpected}`
 )
