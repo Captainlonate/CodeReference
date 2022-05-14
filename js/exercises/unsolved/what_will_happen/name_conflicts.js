@@ -1,6 +1,6 @@
 var x = 10
 
-function y () {
+function y() {
   x = 100
   return x
   function x() {

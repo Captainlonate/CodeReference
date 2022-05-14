@@ -18,14 +18,14 @@
 /*
   Time Complexity - O(n)
 */
-function same (arr1, arr2) {
+function same(arr1, arr2) {
   
 }
 
-console.log(same([3, 1, 2], [4, 9, 1]), 'Should be true')
+console.log(same([3, 1, 2], [4, 9, 1]), "Should be true");
 
-console.log(same([3, 2, 2], [4, 9, 1]), 'Should be false')
+console.log(same([3, 2, 2], [4, 9, 1]), "Should be false");
 
-console.log(same([3, 1, 2, 5], [4, 9, 1]), 'Should be false')
+console.log(same([3, 1, 2, 5], [4, 9, 1]), "Should be false");
 
-console.log(same([3, 1, 5], [4, 9, 1]), 'Should be false')
+console.log(same([3, 1, 5], [4, 9, 1]), "Should be false");

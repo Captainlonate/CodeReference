@@ -20,17 +20,17 @@
     Time - O(n)
     Space - O(n)
 */
-function areThereDuplicates (...args) {
+function areThereDuplicates(...args) {
   
 }
 
 /*
-  Multiple Pointers:
+  Multiple Pointers: 
     (have to sort it, and assumes it is sortable)
     Time - O(n log(n))
     Space - O(1)
 */
-function areThereDuplicates_multpoint (...args) {
+function areThereDuplicates_multpoint(...args) {
   
 }
 
@@ -39,14 +39,14 @@ function areThereDuplicates_multpoint (...args) {
     (Use Set)
   I think this is O(n) for both
 */
-function areThereDuplicates_oneline (...args) {
+function areThereDuplicates_oneline(...args) {
   
 }
 
 // ***************************************
 
-console.log(areThereDuplicates(1, 2, 3), 'Should be false')
+console.log(areThereDuplicates(1, 2, 3), "Should be false");
 
-console.log(areThereDuplicates(1, 2, 2), 'Should be true')
+console.log(areThereDuplicates(1, 2, 2), "Should be true");
 
-console.log(areThereDuplicates('a', 'b', 'c', 'a'), 'Should be true')
+console.log(areThereDuplicates("a", "b", "c", "a"), "Should be true");

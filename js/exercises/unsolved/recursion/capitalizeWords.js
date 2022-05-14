@@ -10,12 +10,12 @@ function capitalizeWords(words) {
 // **************************
 
 console.log(
-  capitalizeWords(['car', 'taco', 'banana']),
-  "Should be ['CAR','TACO','BANANA']"
-)
+  capitalizeWords(["car", "taco", "banana"]),
+  `Should be ['CAR','TACO','BANANA']`
+);
 
-console.log(capitalizeWords(['ygritte']), "Should be ['YGRITTE']")
+console.log(capitalizeWords(["ygritte"]), `Should be ['YGRITTE']`);
 
-console.log(capitalizeWords([]), 'Should be []')
+console.log(capitalizeWords([]), `Should be []`);
 
-console.log(capitalizeWords(['']), "Should be ['']")
+console.log(capitalizeWords([""]), `Should be ['']`);

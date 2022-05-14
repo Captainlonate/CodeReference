@@ -1,4 +1,11 @@
 /*
+
+*/
+function _pipeReducer (f, g) {
+  
+}
+
+/*
   Implement pipe to be able to compose multiple functions
   in the listed order.
   Pipe takes any number of functions.

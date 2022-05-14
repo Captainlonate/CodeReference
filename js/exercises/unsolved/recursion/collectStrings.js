@@ -4,26 +4,26 @@
   all the values in the object which have a
   typeof string.
 */
-function collectStrings (obj) {
+function collectStrings(obj) {
   
 }
 
 // ****************************
 
 const testObject = {
-  stuff: 'foo',
+  stuff: "foo",
   data: {
     val: {
       thing: {
-        info: 'bar',
+        info: "bar",
         moreInfo: {
           evenMoreInfo: {
-            weMadeIt: 'baz',
-          }
-        }
-      }
-    }
-  }
-}
+            weMadeIt: "baz",
+          },
+        },
+      },
+    },
+  },
+};
 
-console.log(collectStrings(testObject), 'Should be ["foo", "bar", "baz"]')
+console.log(collectStrings(testObject), `Should be ["foo", "bar", "baz"]`);

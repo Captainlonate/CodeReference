@@ -5,7 +5,7 @@
   backward).
   Otherwise it returns false.
 */
-function isPalindrome (str) {
+function isPalindrome(str) {
   
 }
 
@@ -16,18 +16,18 @@ function isPalindrome (str) {
 
 // *****************************
 
-console.log(isPalindrome('aba'), 'Should be true')
+console.log(isPalindrome("aba"), "Should be true");
 
-console.log(isPalindrome('aa'), 'Should be true')
+console.log(isPalindrome("aa"), "Should be true");
 
-console.log(isPalindrome('a'), 'Should be true')
+console.log(isPalindrome("a"), "Should be true");
 
-console.log(isPalindrome('awesome'), 'Should be false')
+console.log(isPalindrome("awesome"), "Should be false");
 
-console.log(isPalindrome('foobar'), 'Should be false')
+console.log(isPalindrome("foobar"), "Should be false");
 
-console.log(isPalindrome('tacocat'), 'Should be true')
+console.log(isPalindrome("tacocat"), "Should be true");
 
-console.log(isPalindrome('amanaplanacanalpanama'), 'Should be true')
+console.log(isPalindrome("amanaplanacanalpanama"), "Should be true");
 
-console.log(isPalindrome('amanaplanacanalpandemonium'), 'Should be false')
+console.log(isPalindrome("amanaplanacanalpandemonium"), "Should be false");

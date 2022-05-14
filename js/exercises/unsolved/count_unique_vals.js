@@ -16,14 +16,14 @@
   This is O(n)
   With Loop
 */
-function countUniqueValues (arr) {
+function countUniqueValues(arr) {
   
 }
 
 /*
   With Cache Object
 */
-function countUniqueValuesWithCache (arr) {
+function countUniqueValuesWithCache(arr) {
   
 }
 
@@ -38,19 +38,19 @@ function countUniqueValuesWithCache (arr) {
   and just create a new array by .push()ing, which is 
   an O(1) operation on arrays.
 */
-function countUniqueValuesModifyArray (arr) {
+function countUniqueValues_modify_array(arr) {
 
 }
 
-console.log(countUniqueValues([1, 1, 1, 1, 1, 2]), 'Should be 2')
+console.log(countUniqueValues([1, 1, 1, 1, 1, 2]), "Should be 2");
 
 console.log(
   countUniqueValues([1, 2, 3, 4, 4, 4, 7, 7, 12, 12, 13]),
-  'Should be 7'
-)
+  "Should be 7"
+);
 
-console.log(countUniqueValues([]), 'Should be 0')
+console.log(countUniqueValues([]), "Should be 0");
 
-console.log(countUniqueValues([5]), 'Should be 1')
+console.log(countUniqueValues([5]), "Should be 1");
 
-console.log(countUniqueValues([-2, -1, -1, 0, 1]), 'Should be 4')
+console.log(countUniqueValues([-2, -1, -1, 0, 1]), "Should be 4");

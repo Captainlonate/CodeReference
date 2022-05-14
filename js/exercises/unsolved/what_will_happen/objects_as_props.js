@@ -13,6 +13,6 @@ console.log(a)
   
 
   Why will it print?:
-  -- 
+  
 
 */

@@ -17,43 +17,29 @@
 */
 
 function isSubsequence(needle, haystack) {
-  // return isSubsequence_recursive(needle, haystack)
-  return isSubsequenceLoop(needle, haystack)
-}
-
-function isSubsequenceLoop (needle, haystack) {
-
+  
 }
 
 /*
   Recursive - But NOT O(1) space
 */
-function isSubsequenceRecursive (needle, haystack) {
-  if (needle.length === 0) {
-    return true
-  }
-  if (haystack.length === 0) {
-    return false
-  }
-  if (needle[0] === haystack[0]) {
-    return isSubsequenceRecursive(needle.slice(1), haystack.slice(1))
-  }
-  return isSubsequenceRecursive(needle, haystack.slice(1))
+function isSubsequence_recursive(needle, haystack) {
+  
 }
 
 // ***************************************
 
-console.log(isSubsequence('hello', 'abhehellohe world'), 'Should be true')
+console.log(isSubsequence("hello", "abhehellohe world"), "Should be true");
 
-console.log(isSubsequence('hello', 'hello world'), 'Should be true')
+console.log(isSubsequence("hello", "hello world"), "Should be true");
 
-console.log(isSubsequence('sing', 'sting'), 'Should be true')
+console.log(isSubsequence("sing", "sting"), "Should be true");
 
-console.log(isSubsequence('abc', 'abracadabra'), 'Should be true')
+console.log(isSubsequence("abc", "abracadabra"), "Should be true");
 
-console.log(isSubsequence('a', ''), 'Should be false')
+console.log(isSubsequence("a", ""), "Should be false")
 
 console.log(
-  isSubsequence('abc', 'acb'),
-  'Should be false' // (order matters)
-)
+  isSubsequence("abc", "acb"),
+  "Should be false" // (order matters)
+);

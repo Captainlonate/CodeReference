@@ -6,10 +6,10 @@
 */
 
 /*
-
+  
 */
 function charCount(str) {
   
 }
 
-console.log(charCount('Hello my name is nathan!!!'))
+console.log(charCount("Hello my name is nathan!!!"))

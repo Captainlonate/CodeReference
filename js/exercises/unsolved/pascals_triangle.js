@@ -10,9 +10,12 @@
     1  3  3  1      rowIndex 3
   1  4  6  4  1     rowIndex 4
 */
+// const getRowValue = (row, index) => (
+  
+// )
 
 const getRow = function (targetRowIndex) {
-
+  
 }
 
 console.log(getRow(0), 'should be [1]')
