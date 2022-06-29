@@ -4,16 +4,21 @@
   all the values in the object which have a
   typeof string.
 */
-function collectStrings(obj) {
-  let strings = []
-  for (let key in obj) {
-    if (typeof obj[key] === 'string') {
-      strings.push(obj[key])
-    } else if (typeof obj[key] === 'object' && obj[key] !== null) {
-      strings = strings.concat(collectStrings(obj[key]))
+const isString = (str) => typeof str === 'string'
+const isObject = (obj) => typeof obj === 'object'
+const isArray = (arr) => Array.isArray(arr)
+
+function collectStrings(value) {
+  let partialArr = []
+  if (isString(value)) {
+    partialArr.push(value)
+  } else if (isObject(value) || isArray(value)) {
+    const arrPossibleStrs = isObject(value) ? Object.values(value) : value
+    for (const val of arrPossibleStrs) {
+      partialArr = partialArr.concat(collectStrings(val))
     }
   }
-  return strings
+  return partialArr
 }
 
 // ****************************
@@ -27,6 +32,7 @@ const testObject = {
         moreInfo: {
           evenMoreInfo: {
             weMadeIt: "baz",
+            moreThings: ['bin', { arrObjKey: 'arrObjVal' }, 'baj']
           },
         },
       },
@@ -34,4 +40,4 @@ const testObject = {
   },
 };
 
-console.log(collectStrings(testObject), `Should be ["foo", "bar", "baz"]`);
+console.log(collectStrings(testObject), `Should be ["foo", "bar", "baz", "bin", "arrObjVal", "baj"]`);

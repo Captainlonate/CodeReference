@@ -69,3 +69,18 @@ fn main() {
   };
 }
 ```
+
+## Building a string
+
+_To add a character to a string:_
+
+```rust
+for row in maze {
+    let mut str = String::new();
+    for col in row {
+        // Use str.push() to add a char
+        str.push(col);
+    }
+    println!("Str: {:?}", str)
+}
+```
