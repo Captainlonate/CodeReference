@@ -12,6 +12,8 @@ grep "Dell" ./sample_text.txt
 ```bash
 # Every line that DOES NOT have "Dell" in it
 grep -v "Dell" ./sample_text.txt
+# ls, but exclude anything that starts with a number
+ls /proc | grep -v -E "^[0-9]+"
 ```
 
 ### Show line numbers of each match
