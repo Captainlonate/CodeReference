@@ -1,4 +1,4 @@
-# Typescript + React
+# Typescript or React
 
 ## Generate new project
 
@@ -31,3 +31,20 @@ ts-node index.ts
 ```
 "outDir": "./dist",   
 ```
+
+### A new typescript node project
+
+- `npm init -y`
+- Add this to package.json
+  - .
+  ```json
+  "scripts": {
+    "start": "nodemon index.ts"
+  }
+  ```
+- Install depdendencies
+  - `npm install -D nodemon typescript ts-node @types/node`
+- Make file
+  - `echo "console.log('running');" > index.ts`
+- Done
+  - `npm start`

@@ -48,3 +48,11 @@ _`awk` looks for spaces to delimit each field, per line. But you can change it t
 # Use commas instead of spaces
 awk -F',' '{print $1}' sample_text.txt
 ```
+
+### printf
+
+Here's an example using `printf` to add a newline and tab to the output.
+
+```bash
+grep -inr "ps1=" ~/.oh-my-zsh | awk -F':' '{ printf "%s (%s)\n\t%s\n\n", $1, $2, $3 }'
+```
