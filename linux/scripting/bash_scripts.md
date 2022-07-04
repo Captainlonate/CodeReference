@@ -72,5 +72,5 @@ Operator | True if|
 _file1_ -nt _file2_ | _file1_ is newer than _file2_ |
 _file1_ -ot _file2_ | _file1_ is older than _file2_ |
 
-### Case
+### Example: Functions, case, arguments
 
