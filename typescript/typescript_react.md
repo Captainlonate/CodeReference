@@ -1,5 +1,9 @@
 # Typescript or React
 
+## tsconfig.json
+
+[tsconfig documentation](https://www.typescriptlang.org/tsconfig#files)
+
 ## Generate new project
 
 ```bash
