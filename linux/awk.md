@@ -56,3 +56,19 @@ Here's an example using `printf` to add a newline and tab to the output.
 ```bash
 grep -inr "ps1=" ~/.oh-my-zsh | awk -F':' '{ printf "%s (%s)\n\t%s\n\n", $1, $2, $3 }'
 ```
+
+### Print a field only if some logic
+
+_Only print the first two columns, if the third column (which is a number), is greater than or equal to 45._
+
+```bash
+# Remove the first line of the csv, which are column titles
+tail -n +2 ./sample_wow.csv | awk -F',' '$3 >= 45 {print $1"_"$2}'
+```
+
+### Sum up a numerical column
+
+```bash
+# Remove the first line of the csv, which are column titles
+tail -n +2 ./sample_wow.csv | awk -F',' '{ sum += $3; } END { print sum; }'
+```

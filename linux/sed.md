@@ -45,3 +45,20 @@ sed -E 's/ /,/g' ./sample_wow.csv
 # Delete line number 1, '2d' would be line number 2.
 sed '1d' ./sample_wow.csv
 ```
+
+### Using Character Classes
+
+_I wasn't able to figure out how to use character classes in the replacement portion._
+
+```bash
+# "The phone number is: (___) ___-____"
+echo "The phone number is: (123) 456-7890" | sed 's/[[:digit:]]/_/g'
+```
+
+### Transliterate
+
+```bash
+# "ThIs Is A shOrt strIng Of tExt."
+# It behaves like the tr command: tr 'aeiou' 'AEIOU'
+echo "This is a short string of text." | sed -e 'y/aeiou/AEIOU/'
+```

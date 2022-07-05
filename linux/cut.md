@@ -45,3 +45,13 @@ sed '1d' ./sample_wow.csv | cut -d',' -f1
 # -n +2 means start with line 2, until the end
 tail -n +2 ./sample_wow.csv | cut -d',' -f1
 ```
+
+### Display a CSV file in columns
+
+```bash
+# First, replace all commas with spaces
+# Then display it with the column command
+cut -d',' -f1- --output-delimiter=' ' ./sample_wow.csv | column -t
+# Even though this is the cut.md file, here's how you could do it with sed
+sed -E 's/,/ /g' ./sample_wow.csv | column -t
+```
