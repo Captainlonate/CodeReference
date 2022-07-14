@@ -2,7 +2,7 @@ const dns = require('node:dns');
 const crypto = require('crypto')
 const https = require('https')
 /*
-  The https module does not (but some DNS functions do)
+  The https module does not use the thread pool (but some DNS functions do)
   OS Task
     DNS.resolve()
       Does not use getaddrinfo(3) and they always perform a DNS

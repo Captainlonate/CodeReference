@@ -1,10 +1,11 @@
+
 /*
   Event Loop - Phases
 */
 
 /*
   Question #1
-  Which will log first?
+  Which will log first? (In NodeJS, since there is no setImmediate in browsers.)
 */
 setTimeout(() => {
   console.log('timeout');
