@@ -41,6 +41,10 @@ The event loop keeps track of "refs" counter. When there are no more references 
 - close callbacks
     - some close callbacks, e.g. socket.on('close', ...)
 
+__promises__
+
+Resolved promises should run in between each phase of the event loop (according to the Bert Belder video).
+
 __setTimeout(x, 0) vs setImmediate()__
 
 If both of these are queued and are NOT WITHIN AN I/O CYCLE (like in an fs.readFile), then the  [order of execution is nondeterministic](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#setimmediate-vs-settimeout). If you're inside an i/o cycle, then setImmediate() will run first.
