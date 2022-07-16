@@ -1,0 +1,19 @@
+{
+  "characters": [
+    {
+      "name": "frosty",
+      "class": "mage",
+      "level": 70
+    },
+    {
+      "name": "cat",
+      "class": "druid",
+      "level": 70
+    },
+    {
+      "name": "crank",
+      "class": "warrior",
+      "level": 65
+    }
+  ]
+}

@@ -233,7 +233,7 @@ function pipeMultipleThingsTogetherTransform() {
     })
     const key = crypto.scryptSync("secret_key", 'some_salt', 24)
     const iv = Buffer.alloc(16, 0);
-    function encrypt () {
+    function encrypt_file () {
         // To compress and encrypt a file
         fs.createReadStream(filePath)
             .pipe(zlib.createGzip())
@@ -245,11 +245,11 @@ function pipeMultipleThingsTogetherTransform() {
             .pipe(fs.createWriteStream(filePath + ".zz"))
             .on("finish", () => console.log("\nFile Saved!"));
     }
-    encrypt()
+    encrypt_file()
     
     // If you want to uncompress and unencrypt this file, you'd use
     // the streams in reverse order:
-    function decrypt () {
+    function decrypt_file () {
         fs.createReadStream(filePath + ".zz")
             .pipe(crypto.createDecipheriv("aes192", key, iv))
             .pipe(zlib.createGunzip())
@@ -258,6 +258,6 @@ function pipeMultipleThingsTogetherTransform() {
             })
             .on("finish", () => console.log("\nFile Read!"));
     }
-    // decrypt()
+    // decrypt_file()
 }
 pipeMultipleThingsTogetherTransform()
