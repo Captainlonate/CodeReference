@@ -7,6 +7,8 @@ import fs from "fs"
 */
 
 // =======================================================
+// ==================CONSTANTS / CONFIG===================
+// =======================================================
 
 const HEADERS = {
   contentType: "Content-Type",
@@ -36,6 +38,8 @@ const FILENAMES = {
   markdown: "Readme.md",
 }
 
+// =======================================================
+// =====================HANDLERS==========================
 // =======================================================
 
 // Browser will download the csv file
@@ -102,6 +106,8 @@ const server = http.createServer((req, res) => {
     sendHTMLFile(req, res)
   }
 })
+
+// =======================================================
 
 server.listen(CONFIG.port, CONFIG.host, () => {
   console.log(`Server is running on http://${CONFIG.host}:${CONFIG.port}`)

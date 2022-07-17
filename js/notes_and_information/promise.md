@@ -15,3 +15,4 @@
 
 - `Promise.prototype.finally`
     - introduced in ES 2018 / 9th edition
+
