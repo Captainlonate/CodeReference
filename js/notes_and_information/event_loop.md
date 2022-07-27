@@ -12,6 +12,7 @@ setImmediate, and process.nextTick(), and only browsers have a rendering step)
 - [Bert Belder Youtube](https://www.youtube.com/watch?v=PNa9OMajw9w)
     - Worked on libuv, shows "wrong" diagrams
 - [Official Docs](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)
+- [Max Udemy](https://www.udemy.com/course/nodejs-the-complete-guide/learn/lecture/11561908#overview)
 
 Also see [these notes](./nodejs_multithread.js) on NodeJS threadpools.
 
@@ -24,6 +25,7 @@ The event loop keeps track of "refs" counter. When there are no more references 
 - Timers
     - setTimeout & setInterval
 - Pending Callbacks
+    - During the poll phase, I/O callbacks can be deferred to be handled later. "Later" refers to this, Pending Callbacks, phase. So, if there are any callbacks waiting, this is when they'll be handled.
     - executes I/O callbacks deferred to the next loop iteration
     - Network can be handled by the operating system, but YOUR callbacks still need to be invoked with the data at some point (this is the point).
     - Check if there are events from the kernel to process (i hope this isn't the poll phase)

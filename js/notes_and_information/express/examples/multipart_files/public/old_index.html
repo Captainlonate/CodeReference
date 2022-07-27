@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+    <h1>Test Environment</h1>
+
+    <!-- Test Form -->
+    <form id="test_form">
+        <label for="fname">First Name</label>
+        <input id='fname' name='nm_first_name' type="text" placeholder="First Name" />
+
+        <label for="lname">Last Name</label>
+        <input id='lname' name='nm_last_name' type="text" placeholder="Last Name" />
+
+        <label for="age">Age</label>
+        <input id='age' name='nm_age_num' type="number" value="18" />
+
+        <label for="some_file">Some File</label>
+        <input id='some_file' type="file" name="nm_some_file" />
+
+        <input id='hidden_code' name='nm_secret_code' type="hidden" value="aBcD112345" />
+
+        <br />
+        <br />
+        <button id="submit_button">Submit</button>
+    </form>
+
+    <div>
+        In my life, I used the following web search engines:<br />
+        <a href="//www.yahoo.com">Yahoo!</a><br />
+        <a href="//www.altavista.com">AltaVista</a><br />
+        <a href="//www.google.com">Google</a><br />
+    </div>
+
+    <div class="image">
+        <img src="https://bit.ly/3lmYVna" alt="First">
+        <button class="remove">X</button>
+    </div>
+    <div class="image">
+        <img src="https://bit.ly/3flyaMj" alt="Second">
+        <button class="remove">X</button>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>

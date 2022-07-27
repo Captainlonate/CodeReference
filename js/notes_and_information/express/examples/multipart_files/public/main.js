@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const ageDomEl = formDomEl.elements['nm_age_num']
     const secretCodeDomEl = formDomEl.elements['nm_secret_code']
 
-    function TestFormData () {
+    function TestFormData() {
         formSubmitButtonEl.addEventListener('click', (e) => {
             e.preventDefault()
             const formData = new FormData(formDomEl);
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         })
     }
 
-    function TestDifferentEncodingTypes () {
+    function TestDifferentEncodingTypes() {
 
     }
 
@@ -29,13 +29,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // TestDifferentEncodingTypes()
 
     // =============
-    async function submitFormWithFormDataObject (formData) {
+    async function submitFormWithFormDataObject(formData) {
         formData.append('extra_field', 'set programmatically')
 
-        const response = await fetch('./api/submitformwithformdataobj', {
+        const response = await fetch('./api/uploadfile', {
             method: 'POST',
             body: formData
-        }) 
+        })
 
         console.log({ response })
 
@@ -44,4 +44,39 @@ document.addEventListener('DOMContentLoaded', (event) => {
             console.log(data)
         }
     }
+
+    function registerHandlers() {
+        const allAnchorElements = [...document.getElementsByTagName('a')];
+        allAnchorElements.forEach((anchorEl, idx) => {
+            anchorEl.onclick = function (e) {
+                e.preventDefault()
+                alert(idx)
+            }
+        })
+    }
+
+    // registerHandlers()
+
+    function handleRemoveImages() {
+        function setup() {
+            let buttons = document.getElementsByClassName("remove");
+
+            for (let button of buttons) {
+                button.addEventListener("click", function (e) {
+                    // Description said to remove it's parent DIV element.
+                    // So I'm only going to delete it if it's a div
+                    // if (e.target.parentNode.tagName === "DIV") {
+                    if (e.target.parentNode instanceof HTMLDivElement) {
+                        e.target.parentNode.remove()
+                    }
+                });
+            }
+        }
+
+        setup();
+
+        document.getElementsByClassName("remove")[0].click();
+    }
+    // handleRemoveImages()
+
 })
