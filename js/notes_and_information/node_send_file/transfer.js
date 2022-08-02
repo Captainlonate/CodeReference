@@ -1,6 +1,7 @@
 const net = require("node:net")
 const fs = require('fs')
 const path = require('node:path')
+const os = require('node:os')
 
 // ==============================================
 
@@ -142,7 +143,17 @@ function listen () {
     })
   })
 
-  server.listen(CONFIG.listen.port, CONFIG.listen.address);
+  server.listen(CONFIG.listen.port, CONFIG.listen.address, () => {
+    const interfaces = os.networkInterfaces()
+
+    if (interfaces['en0']) {
+      console.log(
+        interfaces['en0']
+          .filter(({ family }) => family === 'IPv4')
+          .map(({ address }) => address)
+      )
+    }
+  });
 }
 
 // ==============================================
