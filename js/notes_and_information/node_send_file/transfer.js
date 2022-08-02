@@ -98,7 +98,7 @@ function run () {
 function listen () {
   let server;
   server = net.createServer(socket => {
-    console.log('Listen::Log::Receiving a file....')
+    console.log(`Listen::Log::Connection established with "${socket.remoteAddress}".`)
 
     let fileSizeBytes = 0
     let writeStream = null;
@@ -122,6 +122,7 @@ function listen () {
           if (typeof fileName === 'string' && fileName.trim().length > 0) {
             hasReceivedFiledName = true
             writeStream = fs.createWriteStream(`./dest_files/${CONFIG.file.prefix}${fileName.trim()}`)
+            console.log('Listen::Log::Receiving a file....')
             socket.write('%%%RECEIVED_FILENAME')
           } else {
             console.log('Listen::Error::Did not receive a valid filename.', chunkString)
@@ -145,13 +146,16 @@ function listen () {
 
   server.listen(CONFIG.listen.port, CONFIG.listen.address, () => {
     const interfaces = os.networkInterfaces()
-
-    if (interfaces['en0']) {
-      console.log(
-        interfaces['en0']
-          .filter(({ family }) => family === 'IPv4')
-          .map(({ address }) => address)
-      )
+    // en0 (mac), Ethernet (windows)
+    const possibleHostAddresses = (
+      [interfaces['en0'], interfaces['Ethernet']]
+        .filter((val) => !!val)
+        .flat()
+        .filter(({ family }) => family === 'IPv4')
+        .map(({ address }) => address)
+    )
+    if (Array.isArray(possibleHostAddresses) && possibleHostAddresses.length > 0) {
+      console.log('Host IP:', possibleHostAddresses)
     }
   });
 }
