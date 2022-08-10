@@ -2,6 +2,12 @@
 
 [expect() matchers](https://jestjs.io/docs/expect#tomatchobjectobject)
 
+[React-testing-library CheatSheet](https://testing-library.com/docs/react-testing-library/cheatsheet)
+
+[jest-dom Custom Matchers](https://github.com/testing-library/jest-dom)
+
+[List of accessibility roles](https://www.w3.org/TR/html-aria/#docconformance)
+
 ### Install
 
 ```bash
@@ -23,3 +29,44 @@ But the bigger issue is that even with all this, [jest doesn't support some thin
 
 ### Matchers
 
+
+### react-testing-library
+
+__Test a click. You can use `fireEvent`. The docs say that for complicated user interactions, use the `user-event` [library](https://testing-library.com/docs/user-event/intro).__
+
+```js
+import {render, fireEvent, screen} from '@testing-library/react'
+
+test('laskfd', () => {
+  render(<App />)
+  const button = screen.getByRole('button', name: { 'Change to orange' })
+  expect(button).toHaveStyle({ backgroundColor: 'green' })
+  fireEvent.click(button)
+  expect(button).toHaveStyle({ backgroundColor: 'orange' })
+  expect(button.textContent).toBe('Change to green')
+})
+```
+
+## RTL Syntax
+
+`command [All] By QueryType`
+
+_getAllByRole()_ or _getByAltText()_
+
+__Commands__
+
+- `get`: Expect the element to be in the DOM
+- `query`: Expect the element NOT to be in the DOM
+- `await find`: Expect elements to appear asynchronous
+
+__QueryType__
+
+- `Role`
+- `AltText` (images, area, input)
+- `Title`
+- `TestId`
+- `Text` (display elements)
+- Form Elements
+  - `PlaceholderText`
+  - `LabelText`
+  - `DisplayValue`
