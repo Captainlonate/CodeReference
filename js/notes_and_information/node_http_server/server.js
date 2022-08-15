@@ -15,7 +15,12 @@ const HEADERS = {
   contentDisposition: "Content-Disposition",
   attachment: (fileName) => `attachment;filename=${fileName}`,
   setCookie: 'Set-Cookie',
-  cookie: (...cookies) => [...cookies]
+  cookie: (...cookies) => [...cookies],
+  cors: {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'OPTIONS, POST, GET',
+    'Access-Control-Max-Age': (60 * 60 * 24 * 30), // 30 days
+  }
 }
 
 const CONTENT_TYPES = {
@@ -56,6 +61,8 @@ const sendCSVFile = function (req, res) {
 const sendJSONData = function (req, res) {
   res.writeHead(200, {
     [HEADERS.contentType]: CONTENT_TYPES.json,
+    // This one allows cors, but the others may not
+    ...HEADERS.cors
   })
   res.end(
     JSON.stringify({
@@ -95,6 +102,12 @@ const server = http.createServer((req, res) => {
   req.on("error", (err) => {
     console.error("There was an error:::", err)
   })
+
+  // if (req.method === 'OPTIONS') {
+  //   res.writeHead(204, HEADERS.cors);
+  //   res.end();
+  //   return;
+  // }
 
   if (req.url === '/readme') {
     sendMarkdownFile(req, res)
