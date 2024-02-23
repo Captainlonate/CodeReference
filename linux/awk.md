@@ -72,3 +72,39 @@ tail -n +2 ./sample_wow.csv | awk -F',' '$3 >= 45 {print $1"_"$2}'
 # Remove the first line of the csv, which are column titles
 tail -n +2 ./sample_wow.csv | awk -F',' '{ sum += $3; } END { print sum; }'
 ```
+
+### Complex Example
+
+- Match lines that start with spaces and checkmark (checkmarks are 3 bytes)
+  - `/^ ✓ src/`
+- Remove the first 5 characters from each line
+  - `$0 = substr($0, 6)`
+- Find and remove all () and everything between the ()
+  - `gsub(/\([^)]*\)/, "")`
+- Rearrange the columns and format them
+
+Assume you have a file where some of the lines are unit test results from something like vitest. To get this you might run `yarn test --silent --logHeapUsage > testResults.txt`:
+
+```
+ ✓ src/some/path/to/some/testfile.test.tsx  (16 tests | 2 skipped) 15ms 75 MB heap used
+```
+
+And your objective is to get:
+
+```
+15ms 75mb src/some/path/to/some/testfile.test.tsx
+```
+
+```bash
+awk '/^ ✓ src/{$0 = substr($0, 6); gsub(/\([^)]*\)/, ""); printf("%s %smb %s\n", $2, $3, $1)}'
+```
+
+There's no reason you can't break this up into a separate file like `awkScript.awk` and `awk -f ./awkScript.awk testResults.txt`:
+
+```awk
+/^ ✓ src/ {
+  $0 = substr($0, 6)
+  gsub(/\([^)]*\)/, "")
+  printf("%s %smb %s\n", $2, $3, $1)
+}
+```

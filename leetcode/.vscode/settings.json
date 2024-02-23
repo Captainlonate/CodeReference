@@ -1,0 +1,6 @@
+{
+  "standard.enable": false,
+  "window.title": "Slots Client",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+}
