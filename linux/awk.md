@@ -72,3 +72,23 @@ tail -n +2 ./sample_wow.csv | awk -F',' '$3 >= 45 {print $1"_"$2}'
 # Remove the first line of the csv, which are column titles
 tail -n +2 ./sample_wow.csv | awk -F',' '{ sum += $3; } END { print sum; }'
 ```
+
+### Find the slowest unit tests
+
+_First need to output vitest results to a file testresultsoutput.txt_
+
+```bash
+yarn test --silent > testresultsoutput.txt
+```
+
+```bash
+# Grep for lines that contain the string: "✓ src/"
+# Remove anything between parenthesis, including the parenthesis from each line
+# Reduce multiple spaces into a single space
+# Remove some characters at the beginning of each line
+# Rearrange the space delimited columns to be:
+#   10ms 55MB file/path.ts
+# Sort them by either the first column (speed) -k1, or second (heap) -k2 numerically -V.
+# Just take the last 10 lines (the highest numbers)
+grep "✓ src/" testresultsoutput.txt | sed -e 's/([^()]*)//g' | tr -s ' ' | cut -c 4- | awk '{ printf "%s %s%s %s\n", $2, $3, $4, $1 }' | sort -V -k 2 | tail -10
+```
