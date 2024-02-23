@@ -111,3 +111,40 @@ fetch('https://example.com/profile/avatar', {
   body: formData
 })
 ```
+
+__Example: Parse Yaml__
+
+```js
+(async function parseYaml () {
+    // Fetch yaml data (list of github's supported languages)
+    // Link came from here:
+    // https://docs.github.com/en/get-started/learning-about-github/github-language-support#about-supported-languages
+    const result = await fetch('https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml')
+
+    // Convert it to plain text
+    const parsed = await result.text()
+
+    // Pre-compile the regex ([\w] would have targeted '_')
+    // Evidently some do start with numbers
+    const regex_isLetter = RegExp(/[a-zA-Z0-9]/)
+
+    // Split on new lines
+    // Filter out any line that doesn't have an actual
+    //   alphanumeric character in the first position.
+    // Yaml uses spaces/indententation, but the language names are not indented.
+    // 
+    // Example:
+    // # Comment don't care
+    // --- Don't care
+    // C++:
+    //   crap we
+    //   don't care about
+    // Java:
+    const languages = parsed
+        .split('\n')
+        .filter((line) => !!line && regex_isLetter.test(line[0]))
+        .map((language) => language.replace(':', '').trim())
+
+    console.log(languages)
+})()
+```
