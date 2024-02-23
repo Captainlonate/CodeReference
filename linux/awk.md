@@ -92,3 +92,39 @@ yarn test --silent > testresultsoutput.txt
 # Just take the last 10 lines (the highest numbers)
 grep "✓ src/" testresultsoutput.txt | sed -e 's/([^()]*)//g' | tr -s ' ' | cut -c 4- | awk '{ printf "%s %s%s %s\n", $2, $3, $4, $1 }' | sort -V -k 2 | tail -10
 ```
+
+### Complex Example
+
+- Match lines that start with spaces and checkmark (checkmarks are 3 bytes)
+  - `/^ ✓ src/`
+- Remove the first 5 characters from each line
+  - `$0 = substr($0, 6)`
+- Find and remove all () and everything between the ()
+  - `gsub(/\([^)]*\)/, "")`
+- Rearrange the columns and format them
+
+Assume you have a file where some of the lines are unit test results from something like vitest. To get this you might run `yarn test --silent --logHeapUsage > testResults.txt`:
+
+```
+ ✓ src/some/path/to/some/testfile.test.tsx  (16 tests | 2 skipped) 15ms 75 MB heap used
+```
+
+And your objective is to get:
+
+```
+15ms 75mb src/some/path/to/some/testfile.test.tsx
+```
+
+```bash
+awk '/^ ✓ src/{$0 = substr($0, 6); gsub(/\([^)]*\)/, ""); printf("%s %smb %s\n", $2, $3, $1)}'
+```
+
+There's no reason you can't break this up into a separate file like `awkScript.awk` and `awk -f ./awkScript.awk testResults.txt`:
+
+```awk
+/^ ✓ src/ {
+  $0 = substr($0, 6)
+  gsub(/\([^)]*\)/, "")
+  printf("%s %smb %s\n", $2, $3, $1)
+}
+```
